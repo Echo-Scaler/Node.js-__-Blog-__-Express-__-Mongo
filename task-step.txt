@@ -1,0 +1,83 @@
+1.  res.render("index")
+    => create app.js First
+    => .env | Template Engine Import
+
+    => render() ဆိုတာ views folder ထဲမှာရှိတဲ့ template engine (EJS, Pug, Handlebars စသည်) ကို သုံးပြီး
+    HTML page တစ်ခုကို ပြန်ပြရန် သုံးတာပါ
+    => index page ကို HTML အဖြစ် ပြောင်းပြီး user ဆီကို ပြန်ပို့ပေးတာပါ
+
+
+2.  app.use(express.static('public'));
+    => public folder ထဲမှာရှိတဲ့ static files (CSS, JS, Images) တွေကို
+    HTML page တစ်ခုကို ပြန်ပြရန် သုံးတာပါ
+    public/css/style.css
+    public/js/script.js
+    public/img/img-noise-361x370.png
+
+    ⁂ Browser က <link rel="stylesheet" href="/css/style.css">
+    လို request ပို့တဲ့အချိန် Express က public folder ထဲမှာ
+    style.css ကို ရှာပြီး ပြန်ပို့ပေးတာပါ
+    public/css/style.css => browser က တိုက်ရိုက် accessလုပ်နိုင်အောင် Express ကို ပြောတာ => middleware အဖြစ်သုံးထားတာပါ။
+
+ 
+    app.set("layout", "./layouts/main");
+    => layout ဆိုတာ views folder ထဲမှာရှိတဲ့ layout file ကို သုံးပြီး
+    HTML page တစ်ခုကို ပြန်ပြရန် သုံးတာပါ
+    views/layouts/main.ejs
+    views/index.ejs
+
+3. locals = global data box 📦
+   layout = shared file
+
+4. <%= title %>         => render ကပို့လာတဲ့ variable
+   <%= locals.title %>  => Express locals object
+ 
+   => EJS for Junior => EJS Engine Understand API-only Express
+    
+***************************************
+    <%= name %>   <!-- outputs value -->
+    <% name %>    <!-- runs JS, no output -->
+    <% if (isLoggedIn) { %>
+        <p>Welcome back</p>
+    <% } else { %>
+        <p>Please login</p>
+    <% } %>
+#auth checks
+#navbar links
+#showing messages
+
+#looping
+<ul>
+  <% posts.forEach(post => { %>
+    <li><%= post.title %></li>
+  <% }) %>
+</ul>
+
+#include partials
+<%- include('partials/header') %>
+<%- include('partials/footer') %>
+-navbar
+-footer
+-layouts
+
+#Pass data from Express → EJS
+res.render("home", {
+  title: "Home",
+  user
+});
+
+
+#Escaped vs unescaped output
+<%= content %>   <!-- escaped (safe) -->
+***************************************
+
+
+
+
+
+
+
+
+
+
+. Header and Footer Separate files
