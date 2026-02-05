@@ -12,7 +12,7 @@ app.use(express.static('public')); /* middleware အဖြစ်သုံးထ�
 
 //Templating Engine
 app.use(expressLayouts);
-app.set("layout", "./layouts/main"); //default layout file name is maine.js
+app.set("layout", "./layouts/uimain"); //default layout file name is maine.js
 app.set("view engine", "ejs");
 
 // EJS မှာ layout system မပါဘူး
