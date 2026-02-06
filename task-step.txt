@@ -72,6 +72,43 @@ res.render("home", {
 ***************************************
 
 
+DB Connection
+
+=>Create folder server/config/db.js
+=>Logic should be like this::
+=>const mongoose = require('mongoose');
+
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGODB_URI);
+    console.log(`Database Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.error("Connection String is missing or invalid!");
+    console.log(error);
+  }
+}
+
+module.exports = connectDB;
+
+In app.js
+=> require('dotenv').config(); // This MUST be at the very top
+=> const connectDB = require('./server/config/db'); // Now this will work
+=> connectDB(); // Call it
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

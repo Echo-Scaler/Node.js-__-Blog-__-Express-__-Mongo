@@ -3,9 +3,16 @@ require("dotenv").config();
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 
+const connectDB = require("./server/config/db"); //database connection
+
 
 const app = express();
 const PORT = process.env.PORT || 5050;
+
+
+connectDB();  //database connection
+
+
 
 app.use(express.static('public')); /* middleware အဖြစ်သုံးထားတာပါ။ */
 
