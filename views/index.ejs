@@ -1,28 +1,27 @@
 <div class="author">
-    <h1 class="author_heading">Hi, I'm John Doe</h1>
-    <p class="author_body">A blog website for sharing your thoughts and ideas.</p>
+  <h1 class="author_heading">Hi, I'm John Doe</h1>
+  <p class="author_body">A blog website for sharing your thoughts and ideas.</p>
 </div>
 
-<img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&" alt="hero image" class="hero-image" width="790" height="444">
-
+    <img src="https://picsum.photos/790/444" alt="hero image" class="hero-image" width="790" height="444">
 
 
 <section class="articles">
-    <h2 class="heading">Latest Posts</h2>
-    <ul class="article-ul">
+  <h2 class="heading">Latest Posts</h2>
+   
+<ul class="article-ul">
+  <% data.forEach(post => { %>
+    <li>
+      <a href="/post/<%= post.id%>">
+        <span><%= post.title %></span>
+        <span class="article-list__date"><%= post.createdAt.toDateString() %></span>
+      </a>
+    </li>
+  <% }) %>
+</ul>
 
-        <li class="article">
-            <a href="#" style="text-decoration: none;">
-                <h2>Post Title</h2>
-                <span class="article-list_date">Date</span>
-                <p>Post Description</p>
-            </a>
 
-    </ul>
-
-
-<a href="#" class="pagination" style="text-decoration: none;">View All Posts &rarr; </a>
-
+ <% if(nextPage !== null ){ %>
+ <a href="/?page=<%= nextPage %>" class="pagination" >View All Posts &rarr;</a>
+ <% } %>
 </section>
-
-

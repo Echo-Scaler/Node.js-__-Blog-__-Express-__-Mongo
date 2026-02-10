@@ -1,19 +1,14 @@
-
-<div class="search-bar-container py-4 ">
-    <div class="container">
-        <form action="/search" method="POST" class="search-form" role="search">
-            <div class="input-group">
-                <input type="search" 
-                       id="searchInput" 
-                       name="searchInput" 
-                       class="form-control" 
-                       placeholder="Search the site..." 
-                       aria-label="Search the site"
-                       required>
-                <button type="submit" id="searchButton" class="btn btn-primary">
-                    Search
-                </button>
-            </div>
-        </form>
-    </div>
+<div class="searchBar">
+  <div class="container">
+    <form action="/search" method="POST" class="search-form" role="search">
+      <input
+        type="search"
+        id="searchInput"
+        name="searchTerm"
+        placeholder="Search the site..."
+        aria-label="Search the site"
+      />
+    </form>
+    <div id="searchClose">Close</div>
+  </div>
 </div>

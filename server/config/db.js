@@ -8,6 +8,10 @@ const connectDB = async () => {
     console.error("Connection String is missing or invalid!");
     console.log(error);
   }
+  console.log("mongodb+srv://waiyantoshima12_db_user:<db_password>@cluster0.shpjsbx.mongodb.net/?appName=Cluster0");
 }
 
+
 module.exports = connectDB;
+
+
